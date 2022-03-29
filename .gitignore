@@ -1,0 +1,7 @@
+.parcel-cache
+dist
+node_modules
+pnpm-lock.yaml
+lib
+.merlin
+**/*.bs.js
