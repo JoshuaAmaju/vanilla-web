@@ -5,20 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
     <link rel="stylesheet" href="../../client/styles/global.css">
+    <title>Parcel</title>
 </head>
 
 <body>
     <main class="body">
-        <h1>About</h1>
+        <h1>{{title}}</h1>
 
-        <h3 class="bg-red-500">About</h3>
+        <div id="app"></div>
 
-        <div id="app" data-props='{{json props}}'></div>
+        <a href="/about">About</a>
+
+        <a href="/react-ssr">React SSR</a>
+
+        <button class="btn bg-red-600 text-white uppercase">Add</button>
     </main>
 
-    <script id="about" type="module" src="script.tsx"></script>
+    <script id="home" type="module" src="script.ts"></script>
 </body>
 
 </html>
