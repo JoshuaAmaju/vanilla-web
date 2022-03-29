@@ -1,13 +1,15 @@
 {
 	"scripts": {
+		"re:build": "rescript",
+		"re:start": "rescript build -w",
 		"serve": "node ./dist/index.js",
 		"clean": "rimraf dist .parcel-cache",
 		"build:server": "parcel build './src/index.ts' --target=server",
 		"build:client": "parcel build './src/pages/**/*.html' --target=client",
 		"build": "pnpm run clean && pnpm run build:client && pnpm run build:server",
 		"start": "nodemon --watch src -e ts,tsx,html,css --exec \"pnpm run build && pnpm run serve\"",
-		"start:client": "NODE_ENV=development nodemon --watch src -e ts,tsx,html,css --exec \"pnpm run build:client\"",
-		"start:server": "NODE_ENV=development nodemon --watch src --ignore src/client -e ts,tsx --exec \"pnpm run build:server && pnpm run serve\""
+		"start:client": "NODE_ENV=development nodemon --watch src -e ts,tsx,html,css --exec \"pnpm run re:build && pnpm run build:client\"",
+		"start:server": "NODE_ENV=development nodemon --watch src --ignore src/client -e ts,tsx --exec \"pnpm run re:build && pnpm run build:server && pnpm run serve\""
 	},
 	"devDependencies": {
 		"@parcel/config-default": "^2.3.2",
@@ -20,6 +22,7 @@
 		"@types/method-override": "^0.0.32",
 		"@types/morgan": "^1.9.3",
 		"@types/node": "^17.0.21",
+		"@types/ramda": "^0.28.4",
 		"@types/react": "^17.0.40",
 		"@types/react-dom": "^17.0.13",
 		"@types/turbolinks": "^5.2.0",
@@ -39,10 +42,12 @@
 		"consolidate": "^0.16.0",
 		"express": "^4.17.3",
 		"express-handlebars": "^6.0.3",
+		"fp-ts": "^2.11.9",
 		"gsap": "^3.9.1",
 		"handlebars": "^4.7.7",
 		"method-override": "^3.0.0",
 		"morgan": "^1.10.0",
+		"ramda": "^0.28.0",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"turbolinks": "^5.2.0",

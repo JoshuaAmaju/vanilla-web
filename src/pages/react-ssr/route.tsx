@@ -4,8 +4,5 @@ import App from "./app";
 
 export const get: RequestHandler = (_, res) => {
   const content = renderToString(<App />);
-
-  setTimeout(() => {
-    res.render("react-ssr/index", { content });
-  }, 2000);
+  res.render("react-ssr/index", { content });
 };
